@@ -1,0 +1,5 @@
+Category: mini
+Board URL: http://www.pcengines.ch/apu.htm
+ROM protocol: SPI
+ROM socketed: n
+Flashrom support: y
