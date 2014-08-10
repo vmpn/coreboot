@@ -4,6 +4,8 @@
 static void report_bist_failure(u32 bist)
 {
 	if (bist != 0) {
+
+//Why is this ifdef needed if print_emerge already aliased to printk when neecessary?
 #if CONFIG_CACHE_AS_RAM
                 printk(BIOS_EMERG, "BIST failed: %08x", bist);
 #else
