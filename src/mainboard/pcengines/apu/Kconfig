@@ -1,0 +1,45 @@
+#
+# This file is part of the coreboot project.
+#
+# Copyright (C) 2014 Vladimir Berezniker <vmpn@vmpn.net>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+#
+
+if BOARD_PCENGINES_APU
+
+config BOARD_SPECIFIC_OPTIONS # Select options for the board (Not user managable)
+        def_bool y
+  select CPU_AMD_AGESA_FAMILY14
+  select NORTHBRIDGE_AMD_AGESA_FAMILY14 #board has A50M a.k.a Hudson M1 FCH (South+North Bridge)
+  select SOUTHBRIDGE_AMD_CIMX_SB800 # There is no southbridge per say here. But guess from Gizmo and asrock/e350m1 it is compatible with A50M
+	select SUPERIO_NUVOTON_NCT5104D #board's superIO chip
+  select BOARD_ROMSIZE_KB_2048 # Board has MXIC MX25L1606E
+ # select HAVE_ACPI_RESUME
+ # select HAVE_ACPI_TABLES
+
+config MAINBOARD_DIR
+        string
+        default pcengines/apu
+
+config MAINBOARD_PART_NUMBER
+        string
+        default "apu"
+
+config MAX_CPUS
+        int
+        default 2
+
+endif #BOARD_PCENGINES_APU
+
